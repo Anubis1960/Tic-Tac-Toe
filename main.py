@@ -57,6 +57,7 @@ class TicTacToe:
             self.draw_figures()
             pg.display.update()
 
+        pg.time.wait(1000)
         self.screen.fill(BG_COLOR)
         self.show_msg("You won!" if self.check_win('X') else "You lost!" if self.check_win('O') else "Draw!")
 
@@ -141,7 +142,12 @@ class TicTacToe:
         text = font.render(text, True, (255, 255, 255))
         self.screen.blit(text, (WIDTH // 2 - text.get_width() // 2, HEIGHT // 2 - text.get_height() // 2))
         pg.display.update()
-        pg.time.wait(3000)
+        pg.time.wait(2000)
+        self.restart()
+
+    def restart(self):
+        self.__init__()
+        self.run()
 
 
 if __name__ == "__main__":
